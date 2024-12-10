@@ -1,5 +1,6 @@
 <?php
-require_once '../config/conn.php';
+require_once('../config/conn.php');
+require_once('../config/auth.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userId = $_POST['user_id'];

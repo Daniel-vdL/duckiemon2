@@ -1,5 +1,6 @@
 <?php
-require_once '../config/conn.php';
+require_once('../config/conn.php');
+require_once('../config/auth.php');
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

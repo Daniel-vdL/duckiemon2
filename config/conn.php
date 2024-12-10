@@ -1,5 +1,4 @@
 <?php
-
 include('config.php');
 
 $base_url = "http://localhost/duckiemon2/";

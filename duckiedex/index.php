@@ -1,5 +1,6 @@
 <?php 
-require_once '../config/conn.php';
+require_once('../config/conn.php');
+require_once('../config/auth.php');
 
 $pokemonsQuery = "SELECT * FROM pokemons";
 $currentPokemons = $conn->query($pokemonsQuery)->fetch_all(MYSQLI_ASSOC);
