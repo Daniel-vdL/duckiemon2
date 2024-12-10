@@ -1,0 +1,78 @@
+.duckiecatch-body {
+    background-image: url('../img/grass.jpg');
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.duckiecatch-con {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.duckiecatch-con img {
+    border-radius: 20px;
+    max-width: 100%;
+    height: auto;
+}
+
+.legendary {
+    border: 5px solid gold;
+    animation: glow 1.5s infinite alternate, pulse 0.8s;
+}
+
+.legendary-banner {
+    font-size: 24px;
+    color: gold;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: textFlash 1s infinite alternate;
+}
+
+.mythical {
+    border: 5px solid purple;
+    animation: glow 1.5s infinite alternate, pulse 0.8s;
+}
+
+.mythical-banner {
+    font-size: 24px;
+    color: purple;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: textFlash 1s infinite alternate;
+}
+
+.bottom-bar {
+    position: fixed;
+    border-top: 5px solid var(--accent-color);
+    background-color: var(--primary-color) !important;
+    bottom: 0;
+    width: 100%;
+    max-height: 200px;
+    padding: 10px 0;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.5);
+    }
+    to {
+        box-shadow: 0 0 25px 10px rgba(255, 215, 0, 1);
+    }
+}
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+@keyframes textFlash {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.5;
+    }
+}
