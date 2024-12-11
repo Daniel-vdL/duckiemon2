@@ -23,8 +23,8 @@
                                 <input type="password" id="password" name="password" class="form-control" required>
                             </div>
                             <div class="form-buttons d-flex justify-content-between mt-4">
-                                <a href="index.php" class="submit-button">Login</a>
-                                <button type="submit" name="register_button" class="submit-button">Register</button>
+                                <a href="index.php" class="btn btn-primary">Login</a>
+                                <button type="submit" name="register_button" class="btn btn-primary">Register</button>
                             </div>
                         </form>
                     </div>

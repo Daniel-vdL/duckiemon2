@@ -39,12 +39,7 @@
     box-shadow: 0 0 5px var(--accent-color);
 }
 
-.submit-button {
+.btn-primary {
     background-color: var(--accent-color);
-    text-decoration: none;
-    border: none;
-    color: var(--text-color);
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+    border-color: var(--accent-color);
 }
