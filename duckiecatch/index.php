@@ -33,7 +33,7 @@ $pokemons = $conn->query($pokemonsQuery)->fetch_all(MYSQLI_ASSOC);
                 
                 </div>
                 <div>
-                    <button id="throw-pokeball" class="btn btn-success">Throw Pokeball</button>
+                    <button id="throw-pokeball" class="btn btn-primary">Throw Pokeball</button>
                     <button id="randomize" class="btn btn-primary">Randomize Pokemon</button>
                 </div>
             </div>

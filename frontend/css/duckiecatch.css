@@ -52,6 +52,11 @@
     padding: 10px 0;
 }
 
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
 @keyframes glow {
     from {
         box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.5);

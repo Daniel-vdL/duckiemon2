@@ -1,0 +1,29 @@
+.home {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.auth-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

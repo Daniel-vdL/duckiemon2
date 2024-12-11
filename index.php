@@ -4,22 +4,12 @@ require_once('config/auth.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <?php require_once 'frontend/head.php'; ?>
-    <style>
-        .home {
-            background-color: #f8f9fa;
-        }
-        .container {
-            margin-top: 50px;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-    </style>
-</head>
+<?php require_once 'frontend/head.php'; ?>
+<link rel="stylesheet" href="<?php echo $base_url; ?>frontend/css/home.css">
 <body class="home">
+    <div class="auth-buttons">
+            <a href="login/logout.php" class="btn btn-primary"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
     <div class="container">
         <div class="header">
             <h1 class="display-4">Welcome to DuckieMon!</h1>
