@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (Math.random() < 0.5) {
                 const nickname = prompt("You caught the Pokémon! Enter a nickname (optional):");
-                const userId = 1;
+                const userId = <?php echo $_SESSION['user_id']; ?>;
 
                 fetch('save_pokemon.php', {
                     method: 'POST',
