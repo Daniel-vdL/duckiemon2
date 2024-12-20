@@ -1,6 +1,12 @@
 <?php 
 require_once('config/conn.php');
 require_once('config/auth.php');
+
+if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
+    $admin_button = '<a href="admin" class="btn btn-primary me-2"><i class="fas fa-user-shield"></i> Admin</a>';
+} else {
+    $admin_button = '';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +14,7 @@ require_once('config/auth.php');
 <link rel="stylesheet" href="<?php echo $base_url; ?>frontend/css/home.css">
 <body class="home">
     <div class="auth-buttons">
+            <?php echo $admin_button; ?>
             <a href="login/logout.php" class="btn btn-primary"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
     <div class="container">

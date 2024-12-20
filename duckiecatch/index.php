@@ -28,12 +28,12 @@ $pokemons = $conn->query($pokemonsQuery)->fetch_all(MYSQLI_ASSOC);
         <div class="container">
             <div class="d-flex justify-content-between">
                 <div>
-                <a href="<?php echo $base_url; ?>" class="btn btn-primary">Home</a>
+                <a href="<?php echo $base_url; ?>" class="btn btn-primary me-2">Home</a>
                 <a href="<?php echo $base_url; ?>duckiedex" class="btn btn-primary">Duckiedex</a>
                 
                 </div>
                 <div>
-                    <button id="throw-pokeball" class="btn btn-primary">Throw Pokeball</button>
+                    <button id="throw-pokeball" class="btn btn-primary me-2">Throw Pokeball</button>
                     <button id="randomize" class="btn btn-primary">Randomize Pokemon</button>
                 </div>
             </div>

@@ -341,9 +341,11 @@ function createUserPokemonsTable($conn) {
         id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         user_id INT(11) NOT NULL,
         pokemon_id INT(11) NOT NULL,
+        name VARCHAR(255) NOT NULL,
         nickname VARCHAR(255) NULL,
         level INT(11) DEFAULT 5,
         current_hp INT(11) NOT NULL,
+        max_hp INT(11) NOT NULL,
         attack INT(11) NOT NULL,
         defense INT(11) NOT NULL,
         sp_attack INT(11) NOT NULL,
@@ -373,19 +375,47 @@ function createUserItemsTable($conn) {
     }
 }
 
+function createPartiesTable($conn) {
+    $createTableSql = "CREATE TABLE parties (
+        id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        user_id INT(11) NOT NULL,
+        pokemon_1 INT(11) NULL,
+        pokemon_2 INT(11) NULL,
+        pokemon_3 INT(11) NULL,
+        pokemon_4 INT(11) NULL,
+        pokemon_5 INT(11) NULL,
+        pokemon_6 INT(11) NULL
+    )";
+    if (!$conn->query($createTableSql)) {
+        die("Error creating table: " . $conn->error);
+    }
+}
+
+function createRolesTable($conn) {
+    $createTableSql = "CREATE TABLE roles (
+        id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL
+    )";
+    if (!$conn->query($createTableSql)) {
+        die("Error creating table: " . $conn->error);
+    }
+}
+
 function createAllTables($conn) {
     createPokemonsTable($conn);
     createItemsTable($conn);
     createNaturesTable($conn);
     createCaughtStatsTable($conn);
     createUsersTable($conn);
+    createRolesTable($conn);
     createUserPokemonsTable($conn);
     createUserItemsTable($conn);
+    createPartiesTable($conn);
     echo "All tables created successfully\n";
 }
 
 function deleteAllTables($conn) {
-    $tables = ['pokemons', 'items', 'natures', 'caught_stats', 'users' ,'user_pokemons', 'user_items'];
+    $tables = ['pokemons', 'items', 'natures', 'caught_stats', 'users' ,'user_pokemons', 'user_items', 'parties', 'roles'];
     foreach ($tables as $table) {
         $sql = "DROP TABLE IF EXISTS $table";
         if (!$conn->query($sql)) {
@@ -396,7 +426,7 @@ function deleteAllTables($conn) {
 }
 
 function clearAllTables($conn) {
-    $tables = ['pokemons', 'items', 'natures', 'caught_stats', 'users', 'user_pokemons', 'user_items'];
+    $tables = ['pokemons', 'items', 'natures', 'caught_stats', 'users', 'user_pokemons', 'user_items', 'parties', 'roles'];
     foreach ($tables as $table) {
         $sql = "TRUNCATE TABLE $table";
         if (!$conn->query($sql)) {

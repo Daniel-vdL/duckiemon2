@@ -5,13 +5,14 @@ require_once('../config/auth.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userId = $_POST['user_id'];
     $pokemonId = $_POST['pokemon_id'];
+    $pokemonName = $_POST['pokemon_name'];
     $nickname = $_POST['nickname'];
 
     if ($nickname == '') {
         $nickname = null;
     }
 
-    saveCaughtPokemon($userId, $pokemonId, $nickname);
+    saveCaughtPokemon($userId, $pokemonId, $pokemonName, $nickname);
 }
 
 function getBaseStats($pokemonId) {
@@ -29,7 +30,7 @@ function generateRandomIVs() {
     return $ivs;
 }
 
-function saveCaughtPokemon($userId, $pokemonId, $nickname = null) {
+function saveCaughtPokemon($userId, $pokemonId, $pokemonName, $nickname = null) {
     global $conn;
     $baseStats = getBaseStats($pokemonId);
     $ivs = generateRandomIVs();
@@ -52,11 +53,10 @@ function saveCaughtPokemon($userId, $pokemonId, $nickname = null) {
     $level = 5;
     $stats = calculateStats($baseStats, $ivs, $evs, $level, $natureIncrease, $natureDecrease);
 
-    $stmt = $conn->prepare("INSERT INTO user_pokemons (user_id, pokemon_id, nickname, level, current_hp, attack, defense, sp_attack, sp_defense, speed, nature_id, caught_stat_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("iisiiiiiiiii", $userId, $pokemonId, $nickname, $level, $stats['hp'], $stats['attack'], $stats['defense'], $stats['sp_attack'], $stats['sp_defense'], $stats['speed'], $natureId, $caughtStatId);
+    $stmt = $conn->prepare("INSERT INTO user_pokemons (user_id, pokemon_id, name, nickname, level, current_hp, max_hp, attack, defense, sp_attack, sp_defense, speed, nature_id, caught_stat_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("iisiiiiiiiiiii", $userId, $pokemonId, $pokemonName , $nickname, $level, $stats['hp'], $stats['hp'], $stats['attack'], $stats['defense'], $stats['sp_attack'], $stats['sp_defense'], $stats['speed'], $natureId, $caughtStatId);
     $stmt->execute();
     $stmt->close();
-
 }
 
 function calculateStats($baseStats, $ivs, $evs, $level, $natureIncrease, $natureDecrease) {
